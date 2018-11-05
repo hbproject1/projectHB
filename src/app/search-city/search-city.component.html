@@ -1,0 +1,8 @@
+<section>
+  <h2>Search City</h2>
+  <input type="text" [(ngModel)]="search" autofocus>
+
+  <ul *ngFor="let location of cityList | cityFilter:search"> <!-- Visar städer city_list.json -->
+      <li routerLink="/city/{{location.id}}">{{ location.nm }}</li>
+  </ul>
+</section>

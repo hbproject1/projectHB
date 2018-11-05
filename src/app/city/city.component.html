@@ -1,0 +1,73 @@
+<div id="wrap">
+  <button id="button" (click)="Backa()">Back to search</button>
+</div>
+
+<section>
+  <h2>Current weatherstats in: {{ weatherNow?.name }} </h2>
+<table class="citytable">
+  <tr>
+    <td>Current Temperature: </td>
+    <td>{{ weatherNow?.main.temp }}&deg;C</td>
+  </tr>
+  <tr>
+    <td>Max Temperature: </td>
+    <td>{{ weatherNow?.main.temp_max }}&deg;C</td>
+  </tr>
+  <tr>
+   <td>Min Temperature: </td>
+   <td>{{ weatherNow?.main.temp_min }}&deg;C</td>
+  </tr>
+  <tr>        
+    <td>Latitude:</td>     
+    <td>{{ weatherNow?.coord.lat }}</td>
+  </tr>
+  <tr>
+     <td>Longitude: </td>
+     <td>{{ weatherNow?.coord.lon }}</td>
+  </tr>
+  <tr>
+     <td>Sunrise: </td>
+     <td>kl: {{ weatherNow?.sys.sunrise * 1000 | date:"HH:mm:" }}</td>
+  </tr>
+  <tr>
+    <td>Sunset: </td>
+    <td>kl: {{ weatherNow?.sys.sunset * 1000 | date:"HH:mm:" }}</td>
+  </tr>
+  <tr>
+    <td>Weather Condition: </td>
+    <td>{{ ConditionNow?.description | lowercase }}</td>
+  </tr>
+  <tr>
+    <td>Windspeed: </td>
+    <td>{{ weatherNow?.wind.speed }} m/s {{ currentWeathers?.wind.deg | windName }}</td>
+  </tr>
+  <tr>
+    <td>Cloud %: </td>
+    <td>{{ weatherNow?.clouds.all }} %</td>
+  </tr>
+  <tr>
+    <td>Rain: </td>
+    <td *ngIf="rainData">{{rainData["3h"]}} mm</td>
+  </tr>
+  <tr>
+    <td>Snow: </td>
+    <td *ngIf="snowData">{{snowData["3h"]}} mm</td>
+  </tr>
+</table>
+
+<h2 id="dygn">Väder kommande dygn </h2>
+<table *ngIf="forecaststats" class="citytable">
+  <tr>
+    <th>Temperature &deg;C</th>
+    <th>Time</th>
+    <th>Windspeed m/s</th>
+    <th>Air pressure</th>
+  </tr>
+  <tr *ngFor="let forecast of forecaststats | forecastTime">
+    <td>{{ forecast.main.temp }}&deg;C</td>
+    <td>{{ forecast.dt * 1000 | date:"yyyy-MM-dd HH:mm:ss" }}</td>
+    <td>{{ forecast.wind.speed }} m/s</td>
+    <td>{{ forecast.main.pressure }}</td>
+  </tr>
+</table>
+</section>

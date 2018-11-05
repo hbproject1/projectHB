@@ -1,0 +1,42 @@
+.citytable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.citytable td, .citytable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.citytable tr:nth-child(even){background-color: #f2f2f2;}
+
+.citytable tr:hover {background-color: #ddd;}
+
+.citytable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+}
+#button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#wrap {
+    display: flex;
+    justify-content: center;
+}
